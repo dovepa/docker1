@@ -1,0 +1,1 @@
+docker inspect overlord | grep IPAddress | awk '{if (NR!=1 && NR!=3) {print}}' | awk -F '"' $'{print $4}'
