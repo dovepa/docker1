@@ -1,7 +1,7 @@
-FROM	alpine
+FROM alpine
 
-LABEL	dpalombo ex00 docker1
+LABEL dpalombo ex00 docker1
 
-RUN		apk update && apk add vim
+RUN apk update && apk add vim
 
-CMD		["vim"]
+CMD ["vim"]
