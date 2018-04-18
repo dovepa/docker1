@@ -5,9 +5,8 @@ LABEL dpalombo ex01 TeamSpeak docker1
 ADD http://dl.4players.de/ts/releases/3.1.1/teamspeak3-server_linux_amd64-3.1.1.tar.bz2 /teamspeak3/
 
 EXPOSE 9987/udp
-EXPOSE 30033/tcp
-EXPOSE 10011/tcp
-EXPOSE 41144/tcp
+EXPOSE 30033
+EXPOSE 10011
 
 RUN apt-get update -y \
         && apt-get upgrade -y \
@@ -17,5 +16,8 @@ RUN apt-get update -y \
         && tar -jxvf /teamspeak3/teamspeak3-server_linux_amd64-3.1.1.tar.bz2 \
         && cd teamspeak3-server_linux_amd64 \
         && apt-get install ca-certificates -y \
-        && touch .ts3server_license_accepted \
-        && ./ts3server_minimal_runscript.sh createinifile=1
+        && touch .ts3server_license_accepted
+
+ENTRYPOINT sh ./teamspeak3-server_linux_amd64/ts3server_minimal_runscript.sh
+
+#docker run -p 9987:9987/udp -p 10011:10011 -p 30033:30033 ex01
