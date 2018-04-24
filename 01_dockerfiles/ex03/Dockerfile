@@ -1,4 +1,4 @@
-FROM solita/ubuntu-systemd
+FROM debian
 
 LABEL dpalombo ex03 GitLab docker1
 

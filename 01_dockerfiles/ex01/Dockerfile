@@ -18,6 +18,8 @@ RUN apt-get update -y \
         && apt-get install ca-certificates -y \
         && touch .ts3server_license_accepted
 
-ENTRYPOINT sh ./teamspeak3-server_linux_amd64/ts3server_minimal_runscript.sh
+ENTRYPOINT ["./teamspeak3-server_linux_amd64/ts3server_minimal_runscript.sh"]
 
-#docker run -p 9987:9987/udp -p 10011:10011 -p 30033:30033 ex01
+CMD ["sh"]
+
+#docker run -p 9987:9987/udp -p 10011:10011 -p 30033:30033 test
