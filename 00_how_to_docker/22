@@ -1,6 +1,1 @@
-taper  eval $(docker-machine env Aiur) 
-puis taper a l interieur le retour de la commande precedente
-dans mon cas et a cet instant :
-comme le dit le retour : to add a worker to this swarm, run the following command :
-
-    docker swarm join --token SWMTKN-1-1uhll5pnalelewn2di83um5tfalhuxt8mjg7qtm62mln1bugf6-brxiluwfsi1nh0q1ylb1aexc4 192.168.99.100:2377
+docker-machine ssh Aiur $(docker swarm join-token worker | awk '{if (NR!=1 && NR!=2 && NR!=4) {print}}')

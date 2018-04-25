@@ -7,7 +7,7 @@ RUN apt-get update -y \
 	&& apt-get install -y curl openssh-server ca-certificates \
 	&& apt-get install -y postfix \
 	&& curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh | bash \
-	&& EXTERNAL_URL="http://gitlab.example.com" apt-get install gitlab-ee
+	&& apt-get install gitlab-ee
 
 
 # Expose web & ssh
